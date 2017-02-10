@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="ISO-8859-1">
+    <title>Display All Segments</title>
+    <style>
+     body {font-family: Arial;}
+     tr, td, th {border: solid black 1px; padding: 10px;}
+     th {background-color: #8888FF; color: white;}    
+    </style>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function()
+      {
+		$.ajax({
+		    url: "rest/segment",
+		    type: 'GET',
+		    dataType: 'json',
+		    contentType: 'application/json',
+		    success: function(ret)
+		    {
+		        console.log("Data: " + ret);
+		        displayAllSegments(ret);
+		    },
+		    error: function(error, textStatus, errorThrown)
+		    {
+		        console.log("Error: " + error);
+		        console.log("Text status: " + textStatus);
+		        console.log("Error thrown: " + errorThrown);
+		    }
+		});         
+      });
+      
+      function displayAllSegments(segments)
+      {
+		   for(var i=0; i < segments.length; i++)
+		   {
+			   $("#segmentlist").append("<tr>" +
+			      "<td>" + segments[i].segmentNumber +"</td>" +
+			      "<td>" + segments[i].flightNumber + "</td>" +
+			      "<td>" + segments[i].originatingCity + "</td>" +
+			      "<td>" + segments[i].segmentDate + "</td>" +
+			      "<td>" + segments[i].miles + "</td>" +
+			      "</tr>");			      
+		   }
+      }
+      
+    </script>    
+  </head>
+  <body>
+    <h1>Display All Segments</h1>
+    <table id="segmentlist">
+      <tr>
+        <th>Segment Number</th>
+        <th>Flight Number</th>
+        <th>Originating City</th>
+        <th>Segment Date</th>
+        <th>Miles</th>
+      </tr>
+    </table>
+  </body>
+</html>

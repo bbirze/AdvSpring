@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Customer List</title>
+<link rel="stylesheet" href="/style.css"></link>
+</head>
+<body>
+	<h1>Customer List</h1>
+	<table>
+		<tr>
+			<th>Customer ID</th>
+			<th>Name</th>
+			<th>Phone</th>
+			<th>Email</th>
+		</tr>
+		<tr th:each="cust : ${customers}">
+			<td th:text="${cust.customerID}">ID</td>
+			<td th:text="${cust.name}">Name</td>
+			<td th:text="${cust.phone}">Phone</td>
+			<td th:text="${cust.email}">Email</td>
+		</tr>
+	</table>
+</body>
+</html>
