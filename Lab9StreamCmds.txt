@@ -1,0 +1,13 @@
+stream create --name justJDBC --definition "jdbc --url=jdbc:hsqldb:hsql://localhost:9002/ --query='select * from account' --username=sa --fixedDelay=100 | log" --deploy
+
+stream create --name JDBCFilter --definition "jdbc --url=jdbc:hsqldb:hsql://localhost:9002/ --query='select * from account' --username=sa --fixedDelay=100 | filter --expression='payload.balance > 0.00 && payload.open == TRUE' | log" --deploy
+
+stream create --name processAccount --definition "jdbc --url=jdbc:hsqldb:hsql://localhost:9002/ --query='select * from account' --username=sa --fixedDelay=100 | filter --expression='payload.balance > 0.00 && payload.open == TRUE' | file --suffix=log" --deploy
+
+Spring XD Installation directory:  /Users/username/java/spring-xd-1.3.0.RELEASE
+Xd/bin/xd-singlenode.bat
+Shell/bin/xd-shell.bat
+
+Start the Spring XD Web GUID :  http://localhost:9393/admin-ui 
+
+Log file in c:/tmp/xd/output
