@@ -6,7 +6,7 @@
 
 #   Java Ignores
 # ##########################################
-/bin/
+bin/
 *.class
 
 # BlueJ files
