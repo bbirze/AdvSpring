@@ -11,8 +11,10 @@ import com.example.domain.InsurancePolicy;
 public class PolicySplitter {
 
 	@Splitter(inputChannel = "unratedPoliciesChannel",
-			 outputChannel = "unratedPolicyChannel")
+		      outputChannel = "unratedPolicyChannel")
 	public List<InsurancePolicy> split(List<InsurancePolicy> policies)  {
+		System.out.println("\n Input List<InsurancePolicy> to split \n" + policies);
+
 		return policies;
 	}
 }

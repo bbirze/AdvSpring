@@ -8,7 +8,7 @@ public class RejectPolicyServiceImpl implements RejectedPolicyService {
 	public void acceptPolicy(InsurancePolicy pol) {
 		System.out.println();
 		System.out.println("Rejected Policy for Customer: " + pol.getCustomerNumber() + "\n\t with Comment: "  + pol.getRatingComment());
-		System.out.println();
+		System.out.println("----------------------------------\n");
 	}
 
 }

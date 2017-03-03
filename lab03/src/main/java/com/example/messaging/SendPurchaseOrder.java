@@ -26,7 +26,7 @@ public class SendPurchaseOrder {
 		public MyMessageCreator(PurchaseOrder po)  {
 			this.po = po;
 		}
-		@Override
+		@Override                          // called by jmsTemplate.send(...)
 		public Message createMessage(Session session) throws JMSException {
 			ObjectMessage msg = session.createObjectMessage(po);
 			return msg;
@@ -36,11 +36,11 @@ public class SendPurchaseOrder {
 	public void sendPO(int poNum, double poAmt)  {
 		PurchaseOrder po = new PurchaseOrder();
 		po.setPoDate(new Date());
-		po.setPoNumber(1239876);
-		po.setAmount(1024.99);
+		po.setPoNumber(poNum);
+		po.setAmount(poAmt);
 		
 		MyMessageCreator mmc = new MyMessageCreator(po);
-		jmsTemplate.send("poQueue", mmc);
+		jmsTemplate.send("poQueue", mmc);  // use MyMessageCreator
 	}
 
 }

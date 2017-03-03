@@ -1,6 +1,6 @@
 $(document).ready(function()   {
 	
-	$.getJSON("allcustomers", function(theList) {
+	$.getJSON("customer", function(theList) {
 	
 		for (var i = 0; i < theList.length; i++)  {
 			var row = "<tr>" 

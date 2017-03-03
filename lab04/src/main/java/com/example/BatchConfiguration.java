@@ -22,8 +22,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableBatchProcessing
 public class BatchConfiguration {
-
 	private Logger log = Logger.getLogger(BatchConfiguration.class);
+
 	@Autowired
 	private JobBuilderFactory jobBuilderFactory;
 	
@@ -32,7 +32,7 @@ public class BatchConfiguration {
 	
 	@Bean
 	public Step step1()  	{
-		Tasklet task = new Tasklet()   {
+		Tasklet task = new Tasklet()   {   // tasklet is UOW within a step
 
 			@Override
 			public RepeatStatus execute(StepContribution contribution, 
@@ -58,7 +58,7 @@ public class BatchConfiguration {
 				return RepeatStatus.FINISHED;
 			}			
 		};
-		StepBuilder  sb = stepBuilderFactory.get("step1");
+		StepBuilder  sb = stepBuilderFactory.get("step2");
 		TaskletStepBuilder tsb = sb.tasklet(task);
 
 		return tsb.build();
@@ -69,7 +69,7 @@ public class BatchConfiguration {
 		RunIdIncrementer incrementer = new RunIdIncrementer();
 		JobBuilder jb = jobBuilderFactory.get("job1");
 		jb.incrementer(incrementer);
-		
+		                 // create job builder that will execute steps 
 		SimpleJobBuilder sjb = jb.start(step1());
 		sjb.next(step2());
 		return sjb.build();

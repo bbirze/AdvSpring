@@ -24,7 +24,7 @@ public class PoController {
 	@RequestMapping(method=RequestMethod.POST)
 	public String submitForm(@RequestParam int number, double amount, Model model)  {
 		sender.sendPO(number, amount);
-		return "sendresult";       // view sentresult.html
+		return "sendresult";       // view sendresult.html
 	}
 	
 	

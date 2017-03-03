@@ -25,12 +25,10 @@ public class JDBCOutbound {
 		DataSource dSource = null;
 		return dSource;
 	}
-	
 	@Bean
 	public MessageChannel goodStudentChannel() {
 		return new DirectChannel();
 	}
-	
 	@Bean
 	@ServiceActivator(inputChannel = "goodStudentChannel")
 	public MessageHandler approvePolicyActivator() {

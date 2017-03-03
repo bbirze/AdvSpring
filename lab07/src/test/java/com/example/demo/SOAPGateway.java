@@ -15,19 +15,11 @@ import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 @EnableIntegration
 public class SOAPGateway {
 	
-	@Bean                // helper, maps Student obj to XML using JAX-B
-	public Jaxb2Marshaller jaxb2Marshaller()  {
-		Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
-		
-		marshaller.setContextPath("edu.biguniversity");
-		return marshaller;
-	}
-	
+
 	@Bean
 	public MessageChannel processStudentChannel() {
 		return new DirectChannel();
 	}
-	
 	@Bean
 	public MessageChannel outputChannel() {
 		return new DirectChannel();
@@ -45,5 +37,13 @@ public class SOAPGateway {
 		gw.setOutputChannelName("outputChannel");
 		
 		return gw;
+	}
+	
+	@Bean                // helper, maps Student obj to XML using JAX-B
+	public Jaxb2Marshaller jaxb2Marshaller()  {
+		Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
+		
+		marshaller.setContextPath("edu.biguniversity");
+		return marshaller;
 	}
 }

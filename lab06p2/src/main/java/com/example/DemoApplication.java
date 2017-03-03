@@ -1,6 +1,7 @@
 package com.example;
 
 import java.math.BigDecimal;
+import java.util.Calendar;
 import java.util.Date;
 
 import org.apache.log4j.Logger;
@@ -25,25 +26,36 @@ public class DemoApplication {
 		ApplicationContext ctx = app.run(args);
 		
 		MessageChannel channel = ctx.getBean("accountChannel", MessageChannel.class);
-
-		Account acct = new Account();
-		acct.setAccountNumber(12345);
-		acct.setCustomerNumber(34576);
-		acct.setBalance(new BigDecimal(2345));
-		acct.setCreationDate(new Date());
+		Calendar now = Calendar.getInstance();
+		now.add(Calendar.DATE, 7);
+		
+		Account acct1 = new Account();
+		acct1.setAccountNumber(12345);
+		acct1.setCustomerNumber(34576);
+		acct1.setBalance(new BigDecimal(2345));
+		acct1.setCreationDate(new Date());
 
 		System.out.println();
-		System.out.println("Main use Account: " + acct);
+		System.out.println("Main use 1st Account: " + acct1);
 
-		Message<Account> message = MessageBuilder.withPayload(acct).build();
+		Message<Account> message = 
+				MessageBuilder.withPayload(acct1)
+				.setExpirationDate(now.getTime())
+				.build();
 		channel.send(message);
+		System.out.println("Main 1st account sent! ");
 		
-		acct.setAccountNumber(98765);
-		acct.setCustomerNumber(98765);
-		acct.setBalance(new BigDecimal(-10.44));
-		System.out.println("Main use Account: " + acct);
+		Account acct2 = new Account();
+		acct2.setAccountNumber(98765);
+		acct2.setCustomerNumber(98765);
+		acct2.setBalance(new BigDecimal(-10.44));
+		System.out.println("Main use 2nd Account: " + acct2);
 
-		message = MessageBuilder.withPayload(acct).build();
+		message = 
+				MessageBuilder.withPayload(acct2)
+				.setExpirationDate(now.getTime())
+				.build();
 		channel.send(message);
+		System.out.println("Main 2nd account sent! ");
 	}
 }

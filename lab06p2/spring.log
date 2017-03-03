@@ -2918,3 +2918,147 @@ Unconditional classes:
 2017-01-31 11:11:09.420  INFO 11608 --- [Thread-1] o.s.i.endpoint.EventDrivenConsumer       : stopped integrationConfiguration.emailActivator.serviceActivator
 2017-01-31 11:11:09.422  INFO 11608 --- [Thread-1] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
 2017-01-31 11:11:09.423  INFO 11608 --- [Thread-1] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2017-02-15 18:30:31.479  INFO 9004 --- [main] com.example.DemoApplication              : Starting DemoApplication on bbirze64 with PID 9004 (C:\Users\bbirze\Documents\ContractInstructor\ClassMaterials\Spring\workspaceSpring\AdvSpring\lab06p2\bin started by bbirze in C:\Users\bbirze\Documents\ContractInstructor\ClassMaterials\Spring\workspaceSpring\AdvSpring\lab06p2)
+2017-02-15 18:30:31.479  INFO 9004 --- [main] com.example.DemoApplication              : No active profile set, falling back to default profiles: default
+2017-02-15 18:30:31.573  INFO 9004 --- [main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@dbd940d: startup date [Wed Feb 15 18:30:31 EST 2017]; root of context hierarchy
+2017-02-15 18:30:32.462  INFO 9004 --- [main] o.s.b.f.config.PropertiesFactoryBean     : Loading properties file from URL [jar:file:/C:/Users/bbirze/.gradle/caches/modules-2/files-2.1/org.springframework.integration/spring-integration-core/4.2.4.RELEASE/4780d5c2b680796844916402816135f0e79f166f/spring-integration-core-4.2.4.RELEASE.jar!/META-INF/spring.integration.default.properties]
+2017-02-15 18:30:32.462  INFO 9004 --- [main] o.s.i.config.IntegrationRegistrar        : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2017-02-15 18:30:32.774  INFO 9004 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2017-02-15 18:30:32.790  INFO 9004 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2017-02-15 18:30:33.102  INFO 9004 --- [main] o.s.b.f.config.PropertiesFactoryBean     : Loading properties file from URL [jar:file:/C:/Users/bbirze/.gradle/caches/modules-2/files-2.1/org.springframework.integration/spring-integration-core/4.2.4.RELEASE/4780d5c2b680796844916402816135f0e79f166f/spring-integration-core-4.2.4.RELEASE.jar!/META-INF/spring.integration.default.properties]
+2017-02-15 18:30:33.477  INFO 9004 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService  'taskScheduler'
+2017-02-15 18:30:33.883  INFO 9004 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-02-15 18:30:33.883  INFO 9004 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase -2147483648
+2017-02-15 18:30:33.883  INFO 9004 --- [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {message-handler:integrationConfiguration.auditActivator.serviceActivator} as a subscriber to the 'changedAccountChannel' channel
+2017-02-15 18:30:33.883  INFO 9004 --- [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'application.changedAccountChannel' has 1 subscriber(s).
+2017-02-15 18:30:33.883  INFO 9004 --- [main] o.s.i.endpoint.EventDrivenConsumer       : started integrationConfiguration.auditActivator.serviceActivator
+2017-02-15 18:30:33.883  INFO 9004 --- [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {service-activator:integrationConfiguration.emailActivator.serviceActivator} as a subscriber to the 'changedAccountChannel' channel
+2017-02-15 18:30:33.883  INFO 9004 --- [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'application.changedAccountChannel' has 2 subscriber(s).
+2017-02-15 18:30:33.898  INFO 9004 --- [main] o.s.i.endpoint.EventDrivenConsumer       : started integrationConfiguration.emailActivator.serviceActivator
+2017-02-15 18:30:33.914  INFO 9004 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 0
+2017-02-15 18:30:33.914  INFO 9004 --- [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2017-02-15 18:30:33.914  INFO 9004 --- [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'application.errorChannel' has 1 subscriber(s).
+2017-02-15 18:30:33.914  INFO 9004 --- [main] o.s.i.endpoint.EventDrivenConsumer       : started _org.springframework.integration.errorLogger
+2017-02-15 18:30:33.914  INFO 9004 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 1073741823
+2017-02-15 18:30:33.914  INFO 9004 --- [main] o.s.i.endpoint.PollingConsumer           : started integrationConfiguration.activator.serviceActivator
+2017-02-15 18:30:33.929  INFO 9004 --- [main] com.example.DemoApplication              : Started DemoApplication in 3.105 seconds (JVM running for 3.878)
+2017-02-15 18:43:38.179  INFO 7592 --- [main] com.example.DemoApplication              : Starting DemoApplication on bbirze64 with PID 7592 (C:\Users\bbirze\Documents\ContractInstructor\ClassMaterials\Spring\workspaceSpring\AdvSpring\lab06p2\bin started by bbirze in C:\Users\bbirze\Documents\ContractInstructor\ClassMaterials\Spring\workspaceSpring\AdvSpring\lab06p2)
+2017-02-15 18:43:38.195  INFO 7592 --- [main] com.example.DemoApplication              : No active profile set, falling back to default profiles: default
+2017-02-15 18:43:38.273  INFO 7592 --- [main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@dbd940d: startup date [Wed Feb 15 18:43:38 EST 2017]; root of context hierarchy
+2017-02-15 18:43:39.149  INFO 7592 --- [main] o.s.b.f.config.PropertiesFactoryBean     : Loading properties file from URL [jar:file:/C:/Users/bbirze/.gradle/caches/modules-2/files-2.1/org.springframework.integration/spring-integration-core/4.2.4.RELEASE/4780d5c2b680796844916402816135f0e79f166f/spring-integration-core-4.2.4.RELEASE.jar!/META-INF/spring.integration.default.properties]
+2017-02-15 18:43:39.165  INFO 7592 --- [main] o.s.i.config.IntegrationRegistrar        : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2017-02-15 18:43:39.446  INFO 7592 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2017-02-15 18:43:39.461  INFO 7592 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2017-02-15 18:43:39.804  INFO 7592 --- [main] o.s.b.f.config.PropertiesFactoryBean     : Loading properties file from URL [jar:file:/C:/Users/bbirze/.gradle/caches/modules-2/files-2.1/org.springframework.integration/spring-integration-core/4.2.4.RELEASE/4780d5c2b680796844916402816135f0e79f166f/spring-integration-core-4.2.4.RELEASE.jar!/META-INF/spring.integration.default.properties]
+2017-02-15 18:43:40.181  INFO 7592 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService  'taskScheduler'
+2017-02-15 18:43:40.524  INFO 7592 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-02-15 18:43:40.524  INFO 7592 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase -2147483648
+2017-02-15 18:43:40.524  INFO 7592 --- [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {message-handler:integrationConfiguration.auditActivator.serviceActivator} as a subscriber to the 'changedAccountChannel' channel
+2017-02-15 18:43:40.524  INFO 7592 --- [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'application.changedAccountChannel' has 1 subscriber(s).
+2017-02-15 18:43:40.540  INFO 7592 --- [main] o.s.i.endpoint.EventDrivenConsumer       : started integrationConfiguration.auditActivator.serviceActivator
+2017-02-15 18:43:40.540  INFO 7592 --- [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {service-activator:integrationConfiguration.emailActivator.serviceActivator} as a subscriber to the 'changedAccountChannel' channel
+2017-02-15 18:43:40.540  INFO 7592 --- [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'application.changedAccountChannel' has 2 subscriber(s).
+2017-02-15 18:43:40.540  INFO 7592 --- [main] o.s.i.endpoint.EventDrivenConsumer       : started integrationConfiguration.emailActivator.serviceActivator
+2017-02-15 18:43:40.540  INFO 7592 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 0
+2017-02-15 18:43:40.540  INFO 7592 --- [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2017-02-15 18:43:40.540  INFO 7592 --- [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'application.errorChannel' has 1 subscriber(s).
+2017-02-15 18:43:40.540  INFO 7592 --- [main] o.s.i.endpoint.EventDrivenConsumer       : started _org.springframework.integration.errorLogger
+2017-02-15 18:43:40.540  INFO 7592 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 1073741823
+2017-02-15 18:43:40.540  INFO 7592 --- [main] o.s.i.endpoint.PollingConsumer           : started integrationConfiguration.activator.serviceActivator
+2017-02-15 18:43:40.555  INFO 7592 --- [main] com.example.DemoApplication              : Started DemoApplication in 3.172 seconds (JVM running for 4.18)
+2017-02-15 18:46:21.866  INFO 8424 --- [main] com.example.DemoApplication              : Starting DemoApplication on bbirze64 with PID 8424 (C:\Users\bbirze\Documents\ContractInstructor\ClassMaterials\Spring\workspaceSpring\AdvSpring\lab06p2\bin started by bbirze in C:\Users\bbirze\Documents\ContractInstructor\ClassMaterials\Spring\workspaceSpring\AdvSpring\lab06p2)
+2017-02-15 18:46:21.882  INFO 8424 --- [main] com.example.DemoApplication              : No active profile set, falling back to default profiles: default
+2017-02-15 18:46:21.965  INFO 8424 --- [main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@dbd940d: startup date [Wed Feb 15 18:46:21 EST 2017]; root of context hierarchy
+2017-02-15 18:46:22.925  INFO 8424 --- [main] o.s.b.f.config.PropertiesFactoryBean     : Loading properties file from URL [jar:file:/C:/Users/bbirze/.gradle/caches/modules-2/files-2.1/org.springframework.integration/spring-integration-core/4.2.4.RELEASE/4780d5c2b680796844916402816135f0e79f166f/spring-integration-core-4.2.4.RELEASE.jar!/META-INF/spring.integration.default.properties]
+2017-02-15 18:46:22.941  INFO 8424 --- [main] o.s.i.config.IntegrationRegistrar        : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2017-02-15 18:46:23.237  INFO 8424 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2017-02-15 18:46:23.237  INFO 8424 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2017-02-15 18:46:23.565  INFO 8424 --- [main] o.s.b.f.config.PropertiesFactoryBean     : Loading properties file from URL [jar:file:/C:/Users/bbirze/.gradle/caches/modules-2/files-2.1/org.springframework.integration/spring-integration-core/4.2.4.RELEASE/4780d5c2b680796844916402816135f0e79f166f/spring-integration-core-4.2.4.RELEASE.jar!/META-INF/spring.integration.default.properties]
+2017-02-15 18:46:23.926  INFO 8424 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService  'taskScheduler'
+2017-02-15 18:46:24.301  INFO 8424 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-02-15 18:46:24.317  INFO 8424 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase -2147483648
+2017-02-15 18:46:24.317  INFO 8424 --- [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {message-handler:integrationConfiguration.auditActivator.serviceActivator} as a subscriber to the 'changedAccountChannel' channel
+2017-02-15 18:46:24.317  INFO 8424 --- [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'application.changedAccountChannel' has 1 subscriber(s).
+2017-02-15 18:46:24.317  INFO 8424 --- [main] o.s.i.endpoint.EventDrivenConsumer       : started integrationConfiguration.auditActivator.serviceActivator
+2017-02-15 18:46:24.317  INFO 8424 --- [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {service-activator:integrationConfiguration.emailActivator.serviceActivator} as a subscriber to the 'changedAccountChannel' channel
+2017-02-15 18:46:24.317  INFO 8424 --- [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'application.changedAccountChannel' has 2 subscriber(s).
+2017-02-15 18:46:24.317  INFO 8424 --- [main] o.s.i.endpoint.EventDrivenConsumer       : started integrationConfiguration.emailActivator.serviceActivator
+2017-02-15 18:46:24.317  INFO 8424 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 0
+2017-02-15 18:46:24.317  INFO 8424 --- [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2017-02-15 18:46:24.317  INFO 8424 --- [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'application.errorChannel' has 1 subscriber(s).
+2017-02-15 18:46:24.332  INFO 8424 --- [main] o.s.i.endpoint.EventDrivenConsumer       : started _org.springframework.integration.errorLogger
+2017-02-15 18:46:24.332  INFO 8424 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 1073741823
+2017-02-15 18:46:24.332  INFO 8424 --- [main] o.s.i.endpoint.PollingConsumer           : started integrationConfiguration.activator.serviceActivator
+2017-02-15 18:46:24.348  INFO 8424 --- [main] com.example.DemoApplication              : Started DemoApplication in 3.254 seconds (JVM running for 4.292)
+2017-02-15 18:47:58.992  INFO 6420 --- [main] com.example.DemoApplication              : Starting DemoApplication on bbirze64 with PID 6420 (C:\Users\bbirze\Documents\ContractInstructor\ClassMaterials\Spring\workspaceSpring\AdvSpring\lab06p2\bin started by bbirze in C:\Users\bbirze\Documents\ContractInstructor\ClassMaterials\Spring\workspaceSpring\AdvSpring\lab06p2)
+2017-02-15 18:47:59.007  INFO 6420 --- [main] com.example.DemoApplication              : No active profile set, falling back to default profiles: default
+2017-02-15 18:47:59.101  INFO 6420 --- [main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@dbd940d: startup date [Wed Feb 15 18:47:59 EST 2017]; root of context hierarchy
+2017-02-15 18:48:00.243  INFO 6420 --- [main] o.s.b.f.config.PropertiesFactoryBean     : Loading properties file from URL [jar:file:/C:/Users/bbirze/.gradle/caches/modules-2/files-2.1/org.springframework.integration/spring-integration-core/4.2.4.RELEASE/4780d5c2b680796844916402816135f0e79f166f/spring-integration-core-4.2.4.RELEASE.jar!/META-INF/spring.integration.default.properties]
+2017-02-15 18:48:00.259  INFO 6420 --- [main] o.s.i.config.IntegrationRegistrar        : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2017-02-15 18:48:00.584  INFO 6420 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2017-02-15 18:48:00.592  INFO 6420 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2017-02-15 18:48:00.911  INFO 6420 --- [main] o.s.b.f.config.PropertiesFactoryBean     : Loading properties file from URL [jar:file:/C:/Users/bbirze/.gradle/caches/modules-2/files-2.1/org.springframework.integration/spring-integration-core/4.2.4.RELEASE/4780d5c2b680796844916402816135f0e79f166f/spring-integration-core-4.2.4.RELEASE.jar!/META-INF/spring.integration.default.properties]
+2017-02-15 18:48:01.256  INFO 6420 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService  'taskScheduler'
+2017-02-15 18:48:01.680  INFO 6420 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-02-15 18:48:01.688  INFO 6420 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase -2147483648
+2017-02-15 18:48:01.689  INFO 6420 --- [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {message-handler:integrationConfiguration.auditActivator.serviceActivator} as a subscriber to the 'changedAccountChannel' channel
+2017-02-15 18:48:01.689  INFO 6420 --- [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'application.changedAccountChannel' has 1 subscriber(s).
+2017-02-15 18:48:01.690  INFO 6420 --- [main] o.s.i.endpoint.EventDrivenConsumer       : started integrationConfiguration.auditActivator.serviceActivator
+2017-02-15 18:48:01.690  INFO 6420 --- [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {service-activator:integrationConfiguration.emailActivator.serviceActivator} as a subscriber to the 'changedAccountChannel' channel
+2017-02-15 18:48:01.690  INFO 6420 --- [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'application.changedAccountChannel' has 2 subscriber(s).
+2017-02-15 18:48:01.757  INFO 6420 --- [main] o.s.i.endpoint.EventDrivenConsumer       : started integrationConfiguration.emailActivator.serviceActivator
+2017-02-15 18:48:01.758  INFO 6420 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 0
+2017-02-15 18:48:01.758  INFO 6420 --- [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2017-02-15 18:48:01.758  INFO 6420 --- [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'application.errorChannel' has 1 subscriber(s).
+2017-02-15 18:48:01.767  INFO 6420 --- [main] o.s.i.endpoint.EventDrivenConsumer       : started _org.springframework.integration.errorLogger
+2017-02-15 18:48:01.768  INFO 6420 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 1073741823
+2017-02-15 18:48:01.771  INFO 6420 --- [main] o.s.i.endpoint.PollingConsumer           : started integrationConfiguration.activator.serviceActivator
+2017-02-15 18:48:01.786  INFO 6420 --- [main] com.example.DemoApplication              : Started DemoApplication in 3.423 seconds (JVM running for 4.259)
+2017-02-16 09:42:24.416  INFO 10100 --- [main] com.example.DemoApplication              : Starting DemoApplication on bbirze64 with PID 10100 (C:\Users\bbirze\Documents\ContractInstructor\ClassMaterials\Spring\workspaceSpring\AdvSpring\lab06p2\bin started by bbirze in C:\Users\bbirze\Documents\ContractInstructor\ClassMaterials\Spring\workspaceSpring\AdvSpring\lab06p2)
+2017-02-16 09:42:24.463  INFO 10100 --- [main] com.example.DemoApplication              : No active profile set, falling back to default profiles: default
+2017-02-16 09:42:24.588  INFO 10100 --- [main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@dbd940d: startup date [Thu Feb 16 09:42:24 EST 2017]; root of context hierarchy
+2017-02-16 09:42:25.945  INFO 10100 --- [main] o.s.b.f.config.PropertiesFactoryBean     : Loading properties file from URL [jar:file:/C:/Users/bbirze/.gradle/caches/modules-2/files-2.1/org.springframework.integration/spring-integration-core/4.2.4.RELEASE/4780d5c2b680796844916402816135f0e79f166f/spring-integration-core-4.2.4.RELEASE.jar!/META-INF/spring.integration.default.properties]
+2017-02-16 09:42:25.960  INFO 10100 --- [main] o.s.i.config.IntegrationRegistrar        : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2017-02-16 09:42:26.366  INFO 10100 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2017-02-16 09:42:26.366  INFO 10100 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2017-02-16 09:42:26.787  INFO 10100 --- [main] o.s.b.f.config.PropertiesFactoryBean     : Loading properties file from URL [jar:file:/C:/Users/bbirze/.gradle/caches/modules-2/files-2.1/org.springframework.integration/spring-integration-core/4.2.4.RELEASE/4780d5c2b680796844916402816135f0e79f166f/spring-integration-core-4.2.4.RELEASE.jar!/META-INF/spring.integration.default.properties]
+2017-02-16 09:42:28.878  INFO 10100 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService  'taskScheduler'
+2017-02-16 09:42:29.533  INFO 10100 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-02-16 09:42:29.548  INFO 10100 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase -2147483648
+2017-02-16 09:42:29.548  INFO 10100 --- [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {service-activator:integrationConfiguration.auditActivator.serviceActivator} as a subscriber to the 'changedAccountChannel' channel
+2017-02-16 09:42:29.548  INFO 10100 --- [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'application.changedAccountChannel' has 1 subscriber(s).
+2017-02-16 09:42:29.548  INFO 10100 --- [main] o.s.i.endpoint.EventDrivenConsumer       : started integrationConfiguration.auditActivator.serviceActivator
+2017-02-16 09:42:29.548  INFO 10100 --- [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {service-activator:integrationConfiguration.emailActivator.serviceActivator} as a subscriber to the 'changedAccountChannel' channel
+2017-02-16 09:42:29.548  INFO 10100 --- [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'application.changedAccountChannel' has 2 subscriber(s).
+2017-02-16 09:42:29.580  INFO 10100 --- [main] o.s.i.endpoint.EventDrivenConsumer       : started integrationConfiguration.emailActivator.serviceActivator
+2017-02-16 09:42:29.580  INFO 10100 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 0
+2017-02-16 09:42:29.580  INFO 10100 --- [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2017-02-16 09:42:29.580  INFO 10100 --- [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'application.errorChannel' has 1 subscriber(s).
+2017-02-16 09:42:29.580  INFO 10100 --- [main] o.s.i.endpoint.EventDrivenConsumer       : started _org.springframework.integration.errorLogger
+2017-02-16 09:42:29.580  INFO 10100 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 1073741823
+2017-02-16 09:42:29.595  INFO 10100 --- [main] o.s.i.endpoint.PollingConsumer           : started integrationConfiguration.activator.serviceActivator
+2017-02-16 09:42:29.611  INFO 10100 --- [main] com.example.DemoApplication              : Started DemoApplication in 5.897 seconds (JVM running for 6.976)
+2017-02-16 10:03:17.807  INFO 10532 --- [main] com.example.DemoApplication              : Starting DemoApplication on bbirze64 with PID 10532 (C:\Users\bbirze\Documents\ContractInstructor\ClassMaterials\Spring\workspaceSpring\AdvSpring\lab06p2\bin started by bbirze in C:\Users\bbirze\Documents\ContractInstructor\ClassMaterials\Spring\workspaceSpring\AdvSpring\lab06p2)
+2017-02-16 10:03:17.807  INFO 10532 --- [main] com.example.DemoApplication              : No active profile set, falling back to default profiles: default
+2017-02-16 10:03:17.916  INFO 10532 --- [main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@dbd940d: startup date [Thu Feb 16 10:03:17 EST 2017]; root of context hierarchy
+2017-02-16 10:03:19.242  INFO 10532 --- [main] o.s.b.f.config.PropertiesFactoryBean     : Loading properties file from URL [jar:file:/C:/Users/bbirze/.gradle/caches/modules-2/files-2.1/org.springframework.integration/spring-integration-core/4.2.4.RELEASE/4780d5c2b680796844916402816135f0e79f166f/spring-integration-core-4.2.4.RELEASE.jar!/META-INF/spring.integration.default.properties]
+2017-02-16 10:03:19.258  INFO 10532 --- [main] o.s.i.config.IntegrationRegistrar        : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2017-02-16 10:03:19.679  INFO 10532 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2017-02-16 10:03:19.679  INFO 10532 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2017-02-16 10:03:20.084  INFO 10532 --- [main] o.s.b.f.config.PropertiesFactoryBean     : Loading properties file from URL [jar:file:/C:/Users/bbirze/.gradle/caches/modules-2/files-2.1/org.springframework.integration/spring-integration-core/4.2.4.RELEASE/4780d5c2b680796844916402816135f0e79f166f/spring-integration-core-4.2.4.RELEASE.jar!/META-INF/spring.integration.default.properties]
+2017-02-16 10:03:20.599  INFO 10532 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService  'taskScheduler'
+2017-02-16 10:03:21.270  INFO 10532 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-02-16 10:03:21.286  INFO 10532 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase -2147483648
+2017-02-16 10:03:21.286  INFO 10532 --- [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {service-activator:integrationConfiguration.auditActivator.serviceActivator} as a subscriber to the 'changedAccountChannel' channel
+2017-02-16 10:03:21.301  INFO 10532 --- [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'application.changedAccountChannel' has 1 subscriber(s).
+2017-02-16 10:03:21.301  INFO 10532 --- [main] o.s.i.endpoint.EventDrivenConsumer       : started integrationConfiguration.auditActivator.serviceActivator
+2017-02-16 10:03:21.301  INFO 10532 --- [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {service-activator:integrationConfiguration.emailActivator.serviceActivator} as a subscriber to the 'changedAccountChannel' channel
+2017-02-16 10:03:21.301  INFO 10532 --- [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'application.changedAccountChannel' has 2 subscriber(s).
+2017-02-16 10:03:21.301  INFO 10532 --- [main] o.s.i.endpoint.EventDrivenConsumer       : started integrationConfiguration.emailActivator.serviceActivator
+2017-02-16 10:03:21.301  INFO 10532 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 0
+2017-02-16 10:03:21.301  INFO 10532 --- [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2017-02-16 10:03:21.301  INFO 10532 --- [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'application.errorChannel' has 1 subscriber(s).
+2017-02-16 10:03:21.317  INFO 10532 --- [main] o.s.i.endpoint.EventDrivenConsumer       : started _org.springframework.integration.errorLogger
+2017-02-16 10:03:21.317  INFO 10532 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 1073741823
+2017-02-16 10:03:21.317  INFO 10532 --- [main] o.s.i.endpoint.PollingConsumer           : started integrationConfiguration.activator.serviceActivator
+2017-02-16 10:03:21.348  INFO 10532 --- [main] com.example.DemoApplication              : Started DemoApplication in 4.29 seconds (JVM running for 5.275)

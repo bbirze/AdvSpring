@@ -5,11 +5,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.integration.annotation.ServiceActivator;
 import org.springframework.integration.channel.DirectChannel;
 import org.springframework.integration.channel.PublishSubscribeChannel;
+import org.springframework.integration.channel.QueueChannel;
 import org.springframework.integration.config.EnableIntegration;
 import org.springframework.integration.handler.MethodInvokingMessageHandler;
 import org.springframework.integration.handler.ServiceActivatingHandler;
+import org.springframework.integration.scheduling.PollerMetadata;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.MessageHandler;
+import org.springframework.scheduling.support.PeriodicTrigger;
 
 import com.example.service.AccountService;
 import com.example.service.AccountServiceImpl;
@@ -43,7 +46,15 @@ public class IntegrationConfiguration {
 	// ======================================
 	@Bean
 	public MessageChannel accountChannel() {
-		return new DirectChannel();
+	//	return new DirectChannel();
+		return new QueueChannel(10);
+	}
+
+	@Bean(name = PollerMetadata.DEFAULT_POLLER)
+	public PollerMetadata defaultPoller() {
+		PollerMetadata pollerMetadata = new PollerMetadata();
+		pollerMetadata.setTrigger(new PeriodicTrigger(100));
+		return pollerMetadata;
 	}
 
 	@Bean
@@ -75,8 +86,8 @@ public class IntegrationConfiguration {
 	public MessageHandler auditActivator() {
 	                	// Activator configured with Audit Server obj and auditAccount method
 		                // using MethodInvokingMessageHandler, does not accept method return value
-		MethodInvokingMessageHandler mh = 
-				new MethodInvokingMessageHandler(auditService(), "auditAccount");
+		ServiceActivatingHandler mh = 
+				new ServiceActivatingHandler(auditService(), "auditAccount");
 		
 		return mh;
 	}

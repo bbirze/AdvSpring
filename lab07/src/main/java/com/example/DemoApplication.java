@@ -18,6 +18,7 @@ public class DemoApplication {
 		app.setBannerMode(Mode.OFF);
 		ApplicationContext ctx = app.run(args);
 		
+		// RatePolicies is the Message Gateway at the start of the Message flow
 		RatePolicies rater = (RatePolicies)ctx.getBean(RatePolicies.class);
 		
 		ArrayList<InsurancePolicy> policies = new ArrayList<>();
@@ -32,6 +33,9 @@ public class DemoApplication {
 		pol.setCoverageAmount(100000);
 		pol.setStatus(InsurancePolicy.Status.Unrated);
 		policies.add(pol);
+
+		System.out.println("\n ----------------------------------");
+		System.out.println("Start flow at rate policy gateway, proxy to unratedPoliciesChannel ");
 		
 		rater.rate(policies);
 	}

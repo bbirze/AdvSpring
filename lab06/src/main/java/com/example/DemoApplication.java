@@ -1,6 +1,7 @@
 package com.example;
 
 import java.math.BigDecimal;
+import java.util.Calendar;
 import java.util.Date;
 
 import org.apache.log4j.Logger;
@@ -25,7 +26,9 @@ public class DemoApplication {
 		ApplicationContext ctx = app.run(args);
 		
 		MessageChannel channel = ctx.getBean("accountChannel", MessageChannel.class);
-
+		Calendar now = Calendar.getInstance();
+		now.add(Calendar.DATE, 7);
+		
 		Account acct = new Account();
 		acct.setAccountNumber(12345);
 		acct.setBalance(new BigDecimal(2345.66));
@@ -33,7 +36,14 @@ public class DemoApplication {
 		acct.setCustomerNumber(34576);
 		log.info("MAIN: Account: " + acct);
 
-		Message<Account> message = MessageBuilder.withPayload(acct).build();
+		Message<Account> message = 
+				MessageBuilder.withPayload(acct)
+				.setExpirationDate(now.getTime())
+				.build();
+		
+		System.out.println("Sending first message");
+		channel.send(message);
+		System.out.println("Sending second message");
 		channel.send(message);
 	}
 }

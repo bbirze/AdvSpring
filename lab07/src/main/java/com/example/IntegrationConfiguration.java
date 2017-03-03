@@ -25,55 +25,64 @@ import com.example.domain.InsurancePolicy;
 import com.example.service.RejectPolicyServiceImpl;
 import com.example.service.RejectedPolicyService;
 
+/*  ComponentScan adds beans configured through Annotations
+ *     
+ *     Endpoints:     PolicyRouter, PolicySplitter
+ */
 @Configuration
 @EnableIntegration
 @IntegrationComponentScan("com.example.service")
 public class IntegrationConfiguration {
 
-	@Bean
+	// message channels 
+	// =========================================
+	
+	@Bean                // output from RatePolicies Gateway
 	public MessageChannel unratedPoliciesChannel() {
 		return new DirectChannel();
 	}
 
-	@Bean
+	@Bean                // output from PolicySplitter
 	public MessageChannel unratedPolicyChannel() {
 		return new DirectChannel();
 	}
 
-	@Bean
+	@Bean                // output from Policy Web Service Gateway
 	public MessageChannel ratedPolicyChannel() {
 		return new DirectChannel();
 	}
 
-	@Bean
+	@Bean               // output from PolicyRouter service
 	public MessageChannel goodPolicyChannel() {
 		return new DirectChannel();
 	}
 
-	@Bean
+	@Bean               // output from PolicyRouter service
 	public MessageChannel badPolicyChannel() {
 		return new DirectChannel();
 	}
 
-	// Beans to send Policy to Rating Web Service 
-	// =========================================
-	@Bean // helper, maps InsurancePolicy obj to XML using JAX-B
-	public Jaxb2Marshaller jaxb2Marshaller() {
-		Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
+	// Beans to send Policy to Policy Rating Web Service 
+	// ==================================================
 
-		marshaller.setContextPath("com.example.domain");
-		return marshaller;
-	}
-
-	@Bean // Gateway to Rating WebService
+	@Bean               // Gateway to Rating WebService
 	@ServiceActivator(inputChannel = "unratedPolicyChannel")
 	public MessageHandler wsOutboundGateway() {
 
+		// create gateway object
 		MarshallingWebServiceOutboundGateway gw = new MarshallingWebServiceOutboundGateway(
 				"http://localhost:8085/ratePolicy", jaxb2Marshaller());
 		gw.setOutputChannelName("ratedPolicyChannel");
 		return gw;
 	}
+
+	@Bean               // JAX-B helper, maps InsurancePolicy obj to XML 
+	public Jaxb2Marshaller jaxb2Marshaller() {
+		Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
+
+		marshaller.setContextPath("com.example.domain");
+		return marshaller;
+	} 
 
 	// Beans to deal with Rejected Policies 
 	// =========================================
@@ -82,12 +91,12 @@ public class IntegrationConfiguration {
 		return new RejectPolicyServiceImpl();
 	}
 
-	@Bean                               // Rejected Policy Service Activator
+	@Bean               // Rejected Policy Service Activator
 	@ServiceActivator(inputChannel = "badPolicyChannel")
 	public MessageHandler rejectedPolicyActivator() {
 
-		MethodInvokingMessageHandler mh = new MethodInvokingMessageHandler(rejectedPolicyService(), "acceptPolicy");
-
+		MethodInvokingMessageHandler mh = 
+				new MethodInvokingMessageHandler(rejectedPolicyService(), "acceptPolicy");
 		return mh;
 	}
 
@@ -100,11 +109,10 @@ public class IntegrationConfiguration {
 		dsb.driverClassName("org.hsqldb.jdbcDriver");
 		dsb.username("SA");
 		dsb.password("");
-
 		return dsb.build();
 	}
 
-	@Bean                          // Rejected Policy Service Activator
+	@Bean               // Approved Policy Service Activator
 	@ServiceActivator(inputChannel = "goodPolicyChannel")
 	public MessageHandler appovedPolicyActivator() {
 
@@ -119,9 +127,14 @@ public class IntegrationConfiguration {
 				ps.setDouble(1,  ip.getCoverageAmount());
 				ps.setInt(2,  ip.getCustomerNumber());
 				ps.setString(3,  ip.getStatus().name());
+				System.out.println("\nInput message from goodPolicyChannel: " + ip.getCustomerNumber());
+				System.out.println("Approved Policy for Customer!  Output payload to database");
+				System.out.println("----------------------------------\n");
 			}
 		}
 		jh.setPreparedStatementSetter(new MyPreparedStatementSetter());
+
+
 		return jh;
 	}
 

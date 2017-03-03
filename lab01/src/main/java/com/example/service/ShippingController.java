@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 
 import com.example.shipping.Shipping;
 
-@Controller
+@Controller           // program starting point because implements CommandLineRunner
 public class ShippingController implements CommandLineRunner {
 
 	private Logger log = Logger.getLogger(ShippingController.class);

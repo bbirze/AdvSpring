@@ -38,6 +38,7 @@ dependencies {
 	}
 	compile('org.springframework.boot:spring-boot-starter-web') {
 		exclude group: 'com.fasterxml.jackson.core'
+		exclude group: 'org.hibernate'
 	}
 	runtime('com.h2database:h2:1.0.60')
 	testCompile('org.springframework.boot:spring-boot-starter-test')

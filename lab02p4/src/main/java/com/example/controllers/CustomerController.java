@@ -36,7 +36,7 @@ public class CustomerController {
 	//             represents a URI
 	//   @ResponseBody: Only Rest returns an object which needs marchalling
 	//
-	@RequestMapping(value = "/allcustomers", method = RequestMethod.GET)
+	@RequestMapping(value = "/customer", method = RequestMethod.GET)
 	public @ResponseBody 
 	List<Customer> getCustomers() {
 

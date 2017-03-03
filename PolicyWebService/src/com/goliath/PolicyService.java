@@ -27,19 +27,21 @@ public class PolicyService
 	}
 
 	@WebMethod(operationName = "insurancePolicy")
-	public @WebResult(name = "insurancePolicy", targetNamespace = "http://goliath.com/") InsurancePolicy ratePolicy(
-			@WebParam(targetNamespace = "http://goliath.com/") InsurancePolicy p)
+	public @WebResult(name = "insurancePolicy", targetNamespace = "http://goliath.com/") InsurancePolicy 
+		ratePolicy(@WebParam(targetNamespace = "http://goliath.com/") InsurancePolicy p)
 	{
+		System.out.println("\n Policy WebService got insurancePolicy: " + p.getCustomerNumber());
 		if (p.getCoverageAmount() < threshold)
 		{
 			p.setStatus(Status.Approved);
+			System.out.println("\t Approve insurancePolicy!");
 		}
 		else
 		{
 			p.setStatus(Status.Rejected);
-			p.setRatingComment("Rejected: Coverage amount too high for applicant");
+			p.setRatingComment("\t Rejected: Coverage amount too high for applicant");
+			System.out.println("\t Rejected insurancePolicy!");
 		}
-		System.out.println("In ratePolicy Web service: " + p);
 
 		return p;
 	}
