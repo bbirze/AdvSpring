@@ -5,10 +5,10 @@
 ### STS ###
 # using gradle eclipse to build eclipse project, so don't want eclipse meta files
 .apt_generated
-#.classpath
+.classpath
 .factorypath
-#.project
-#.settings
+.project
+.settings
 .springBeans
 
 ### IntelliJ IDEA ###
