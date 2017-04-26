@@ -11,10 +11,9 @@ import org.springframework.messaging.MessageHandler;
 import org.springframework.oxm.Marshaller;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
-@Configuration
-@EnableIntegration
+@Configuration                       // Java Configuration
+@EnableIntegration                   // add Spring integration
 public class SOAPGateway {
-	
 
 	@Bean
 	public MessageChannel processStudentChannel() {

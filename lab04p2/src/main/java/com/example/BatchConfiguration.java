@@ -31,7 +31,7 @@ import org.springframework.core.io.Resource;
 
 import com.example.domain.Account;
 
-@Configuration
+@Configuration                      // Java Configuration Class
 @EnableBatchProcessing
 public class BatchConfiguration {
 	
@@ -85,8 +85,8 @@ public class BatchConfiguration {
 		fieldSetMapper.setTargetType(Account.class);
 		
 		DefaultLineMapper<Account> lineMapper = new DefaultLineMapper<>();
-		lineMapper.setLineTokenizer(tokenizer);
-		lineMapper.setFieldSetMapper(fieldSetMapper);
+		lineMapper.setLineTokenizer(tokenizer);          // line mapper has tokenized data
+		lineMapper.setFieldSetMapper(fieldSetMapper);    // line mapper has account class to map to
 		return lineMapper;
 	}
 	
@@ -95,8 +95,8 @@ public class BatchConfiguration {
 		Resource res = new FileSystemResource(dir + "accounts.csv");
 		
 		FlatFileItemReader<Account> itemReader = new FlatFileItemReader<>();
-		itemReader.setLineMapper(lineMapper());
-		itemReader.setResource(res);
+		itemReader.setLineMapper(lineMapper());       // reader has lineMapper
+		itemReader.setResource(res);                  // reader has res source, file
 		return itemReader;
 	}
 	
@@ -107,8 +107,8 @@ public class BatchConfiguration {
 	public Step step1()   {
 		StepBuilder sb = stepBuilderFactory.get("step1");
 		SimpleStepBuilder<Account, Account> ssb = sb.chunk(3);
-		ssb.reader(csvFileReader());
-		ssb.writer(jdbcItemWriter());
+		ssb.reader(csvFileReader());                    // read from flat file
+		ssb.writer(jdbcItemWriter());                   // write to db
 		
 		return ssb.build();
 	}

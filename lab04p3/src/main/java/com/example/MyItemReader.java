@@ -38,10 +38,9 @@ public class MyItemReader implements ItemReader<Game>, ItemStream {
 		String date = bufRdr.readLine();
 		String team1 = bufRdr.readLine();
 		String team2 = bufRdr.readLine();
-		
+
 		if (date == null || team1 == null || team2 == null)  {
-			System.err.println("Got Null Value for (date, team1, team2) = (" + date
-								+ ", " + team1 + ", " + team2 +")");
+			System.err.println("EOF: Got Null Value for (date, team1, team2)");
 			return null;
 		}
 		Game game = new Game();

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;demo.goliath&apos; to &apos;Adv_SpringBoot_WebDemo/src/main/java&apos;&#x0D;&#x0A;- Original project: &apos;AA_SpringBoot_WebDemo&apos;&#x0D;&#x0A;- Destination element: &apos;Adv_SpringBoot_WebDemo/src/main/java&apos;&#x0D;&#x0A;- Original element: &apos;AA_SpringBoot_WebDemo/src/main/java/demo.goliath&apos;" description="Copy package" destination="=Adv_SpringBoot_WebDemo/src\/main\/java" element1="/src\/main\/java&lt;demo.goliath" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1485458918066" version="1.0"/>
+</session>

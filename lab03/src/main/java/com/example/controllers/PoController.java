@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.example.messaging.SendPurchaseOrder;
 
 @Controller
-@RequestMapping("/sendpo")
+@RequestMapping("/sendpo")             // Spring MVC
 public class PoController {
 	
-	@Autowired
+	@Autowired                         // JMS Sender Bean, should have I/F... 
 	private SendPurchaseOrder sender;
 	
 	@RequestMapping(method=RequestMethod.GET)
@@ -23,8 +23,8 @@ public class PoController {
 
 	@RequestMapping(method=RequestMethod.POST)
 	public String submitForm(@RequestParam int number, double amount, Model model)  {
-		sender.sendPO(number, amount);
-		return "sendresult";       // view sendresult.html
+		sender.sendPO(number, amount);    // send results to JMS client
+		return "sendresult";              // set view to sendresult.html
 	}
 	
 	

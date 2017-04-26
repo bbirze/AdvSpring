@@ -34,8 +34,6 @@ public class BatchConfiguration {
 	public ItemReader itemReader() {
 		return new MyItemReader();
 	}
-	
-	
 	@Bean
 	public ItemWriter itemWriter() {
 		return new MyItemWriter();

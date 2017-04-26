@@ -22,6 +22,7 @@ public class DemoApplication {
 		
 		HelloWorld hw = ctx.getBean("hello", HelloWorld.class);
 		String s = hw.sayHello("Sam");
+		System.out.println("========================================");
 		System.out.println(s);
 				
 //		MessageChannel channel = ctx.getBean("shippingChannel", MessageChannel.class);

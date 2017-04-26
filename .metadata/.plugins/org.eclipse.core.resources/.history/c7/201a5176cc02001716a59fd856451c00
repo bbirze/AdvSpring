@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:jms="http://www.springframework.org/schema/jms"
+	xmlns:lang="http://www.springframework.org/schema/lang" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop 
+	    http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+	    http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-4.2.xsd
+        http://www.springframework.org/schema/jee 
+        http://www.springframework.org/schema/jee/spring-jee-4.2.xsd
+        http://www.springframework.org/schema/lang 
+        http://www.springframework.org/schema/lang/spring-lang-4.2.xsd
+        http://www.springframework.org/schema/tx 
+        http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+        http://www.springframework.org/schema/util 
+        http://www.springframework.org/schema/util/spring-util-4.2.xsd">
+
+  <!-- ============ Base JM Components ============================== -->
+
+	<jee:jndi-lookup id="jmsConnectionFactory"	<!-- Connection Factory -->
+	     resource-ref="false" 	jndi-name="jms/purchaseQCF" />
+	           
+	<jee:jndi-lookup id="purchaseQueue"        <!-- JMS Queue -->
+	     resource-ref="false"	jndi-name="jms/purchaseQ" />
+	     
+   <!-- ============ JMS Sender  =================================== -->
+                                               <!-- Template ref's Connection Factory -->
+	<bean  id="jmsTemplate"     class="org.springframework.jms.core.JmsTemplate">
+	    <property name="connectionFactory"   ref="jmsConnectionFactory" />
+	</bean>
+                                               <!-- Sender refs Template and JMS Queue   -->
+	<bean  id="myJmsSender" class="beans.MyJmsSender">
+	    <property name="template"      ref="jmsTemplate" />
+	    <property name="destination"   ref="purchaseQueue"
+	</bean>
+	
+   <!-- ============ JMSReceiver  =================================== -->
+   
+   <!-- POJO Listener Bean: refs in our Listener Container config    -->
+	<bean id="myMessageListener" class="demo.pojolistener.MyMessageListener" />
+
+   <!-- Configure Spring Message Listener Container, 
+         DefaultMessageListenerContainer gives us JMS connectivity Plus Transactions     -->
+	<bean
+		class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<property name="connectionFactory" ref="jmsConnectionFactory" />
+		<property name="destination"       ref="purchaseQueue" />
+		<property name="messageListener"   ref="myMessageListener" />
+	</bean>
+
+ </beans>  

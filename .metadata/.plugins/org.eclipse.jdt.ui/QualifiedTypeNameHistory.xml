@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="example.testrmi.server.HelloService"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="javax.jms.ConnectionFactory"/>
+<fullyQualifiedTypeName name="org.springframework.batch.core.job.builder.SimpleJobBuilder"/>
+<fullyQualifiedTypeName name="org.springframework.messaging.support.MessageBuilder"/>
+<fullyQualifiedTypeName name="part1.hello.HelloWorld"/>
+<fullyQualifiedTypeName name="org.springframework.core.io.Resource"/>
+<fullyQualifiedTypeName name="org.springframework.batch.core.step.builder.StepBuilder"/>
+<fullyQualifiedTypeName name="org.springframework.batch.core.Step"/>
+<fullyQualifiedTypeName name="org.springframework.batch.core.Job"/>
+<fullyQualifiedTypeName name="org.springframework.batch.core.job.builder.JobBuilder"/>
+<fullyQualifiedTypeName name="java.io.FileReader"/>
+<fullyQualifiedTypeName name="org.springframework.batch.item.ItemReader"/>
+<fullyQualifiedTypeName name="org.springframework.batch.item.ItemWriter"/>
+<fullyQualifiedTypeName name="org.apache.log4j.Logger"/>
+<fullyQualifiedTypeName name="org.springframework.messaging.Message"/>
+<fullyQualifiedTypeName name="org.springframework.integration.support.MessageBuilder"/>
+<fullyQualifiedTypeName name="java.math.BigDecimal"/>
+<fullyQualifiedTypeName name="javax.sql.DataSource"/>
+<fullyQualifiedTypeName name="javax.xml.bind.Marshaller"/>
+<fullyQualifiedTypeName name="java.util.Collection"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.springframework.messaging.MessageHandler"/>
+<fullyQualifiedTypeName name="com.example.domain.InsurancePolicy.Status"/>
+<fullyQualifiedTypeName name="JavaAnnotations.university.Advisor"/>
+<fullyQualifiedTypeName name="DependencyInjection.di.university.Student"/>
+<fullyQualifiedTypeName name="org.springframework.messaging.handler.annotation.Header"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.util.concurrent.TimeUnit"/>
+<fullyQualifiedTypeName name="org.springframework.integration.channel.DirectChannel"/>
+</qualifiedTypeNameHistroy>

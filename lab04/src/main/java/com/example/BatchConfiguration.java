@@ -19,7 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+@Configuration                   // this is a Java configuration class
 @EnableBatchProcessing
 public class BatchConfiguration {
 	private Logger log = Logger.getLogger(BatchConfiguration.class);
@@ -41,10 +41,10 @@ public class BatchConfiguration {
 				return RepeatStatus.FINISHED;
 			}			
 		};
-		StepBuilder  sb = stepBuilderFactory.get("step1");
-		TaskletStepBuilder tsb = sb.tasklet(task);
+		StepBuilder  sb = stepBuilderFactory.get("step1");  // new step called step1
+		TaskletStepBuilder tsb = sb.tasklet(task);          // add tasklet to step1
 
-		return tsb.build();
+		return tsb.build();                                 // return built step1
 	}
 	
 	@Bean
@@ -67,12 +67,12 @@ public class BatchConfiguration {
 	@Bean
 	public Job job() throws Exception {
 		RunIdIncrementer incrementer = new RunIdIncrementer();
-		JobBuilder jb = jobBuilderFactory.get("job1");
-		jb.incrementer(incrementer);
-		                 // create job builder that will execute steps 
-		SimpleJobBuilder sjb = jb.start(step1());
-		sjb.next(step2());
-		return sjb.build();
+		JobBuilder jb = jobBuilderFactory.get("job1");      // new job called job1
+		jb.incrementer(incrementer);                        // add incrementer for id
+		                 
+		SimpleJobBuilder sjb = jb.start(step1());    // job builders execute steps
+		sjb.next(step2());                           // so add them all in!
+		return sjb.build();                          // return built job1
 	}
 	
 }

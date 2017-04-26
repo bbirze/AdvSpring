@@ -1,5 +1,15 @@
+Lab8
+=====
+stream create --name ticktock --definition "time --fixedDelay=5 | log --level=WARN"  --deploy
+
+Lab9
+=====
+STREAM: justJDBC:  just get the records out of the database and log it
+------------------------------------------------------
 stream create --name justJDBC --definition "jdbc --url=jdbc:hsqldb:hsql://localhost:9002/ --query='select * from account' --username=sa --fixedDelay=100 | log" --deploy
 
+STREAM: JDBCFilter:  add a filter to the stream that filters out rows for accounts with zero balance or closed accounts
+-----------------------------------------------------------------------------------------------------------------------
 stream create --name JDBCFilter --definition "jdbc --url=jdbc:hsqldb:hsql://localhost:9002/ --query='select * from account' --username=sa --fixedDelay=100 | filter --expression='payload.balance > 0.00 && payload.open == TRUE' | log" --deploy
 
 stream create --name processAccount --definition "jdbc --url=jdbc:hsqldb:hsql://localhost:9002/ --query='select * from account' --username=sa --fixedDelay=100 | filter --expression='payload.balance > 0.00 && payload.open == TRUE' | file --suffix=log" --deploy

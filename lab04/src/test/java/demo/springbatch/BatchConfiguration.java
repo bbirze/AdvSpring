@@ -18,9 +18,9 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
-@EnableBatchProcessing
-@EnableAutoConfiguration
+@Configuration                       // this is a Java Configuration Class
+@EnableBatchProcessing               // we're doing Spring Batch
+@EnableAutoConfiguration             // configure our factories for us
 public class BatchConfiguration {
 
 	private Logger log=Logger.getLogger(BatchConfiguration.class);
@@ -34,28 +34,28 @@ public class BatchConfiguration {
 	@Bean
 	public Step step1()  {
 		return stepBuilderFactory.get("step1").tasklet(new Tasklet() {
-			
+			// Tasklets are custom processing, no need for readers and writers
 			@Override
 			public RepeatStatus execute(StepContribution contribution, 
 										ChunkContext chunkContext) throws Exception {
 				log.info("************ STEP 1");
-				return RepeatStatus.FINISHED;			}
+				return RepeatStatus.FINISHED;	
+			}
 		}).build();
 	}
 	
 	@Bean
 	public Job job() throws Exception  {
 //                   Break down code in the Student Guide, below commented 
-//		return jobBuilderFactory.get("job1").
-//		           .incrementer(new RunIdIncrementer())
+//		return jobBuilderFactory.get("job1").incrementer(new RunIdIncrementer())
 //		           .start(step1()).build();
 		
-		RunIdIncrementer incrementer = new RunIdIncrementer();
-		JobBuilder jb = jobBuilderFactory.get("job1");
-		jb.incrementer(incrementer);
+		RunIdIncrementer incrementer = new RunIdIncrementer();     // unique job execution id
+		JobBuilder jb = jobBuilderFactory.get("job1");             // job with name
+		jb.incrementer(incrementer);                               // add incrementer to job
 
-		SimpleJobBuilder sjb = jb.start(step1());
-		return sjb.build();		
+		SimpleJobBuilder sjb = jb.start(step1());                  // add step1 to job
+		return sjb.build();		                                   // return job
 	}
 
 }

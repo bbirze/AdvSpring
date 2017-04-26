@@ -42,7 +42,6 @@ public class PolicyService
 			p.setRatingComment("\t Rejected: Coverage amount too high for applicant");
 			System.out.println("\t Rejected insurancePolicy!");
 		}
-
 		return p;
 	}
 

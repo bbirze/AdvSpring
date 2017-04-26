@@ -12,7 +12,7 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public void accrueInterest(Account a, 
-			@Header(name="expirationDate") Long expiry) {
+			@Header(name="expirationDate") Long expiry) {   // @Header=>msg header
 		System.out.println("Got Message with Expiry: " + new Date(expiry));
 		System.out.println("   Current: " + a);
 		
@@ -20,7 +20,7 @@ public class AccountServiceImpl implements AccountService {
 		balance = balance.add(balance.multiply(new BigDecimal(0.05)));
 		a.setBalance(balance);
 		
-		try {             // introduce delay
+		try {                                               // introduce delay
 			TimeUnit.SECONDS.sleep(10);
 		} catch (InterruptedException e) {
 			e.printStackTrace();

@@ -3,7 +3,6 @@ package com.example;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.integration.annotation.ServiceActivator;
-import org.springframework.integration.channel.DirectChannel;
 import org.springframework.integration.channel.PublishSubscribeChannel;
 import org.springframework.integration.channel.QueueChannel;
 import org.springframework.integration.config.EnableIntegration;
@@ -65,7 +64,7 @@ public class IntegrationConfiguration {
 	//  Service Activator Configurations
 	// ======================================
 	@Bean
-	@ServiceActivator(inputChannel = "accountChannel")
+	@ServiceActivator(inputChannel = "accountChannel")  // input channel
 	public MessageHandler activator() {
 //		MethodInvokingMessageHandler mh = 
 //				new MethodInvokingMessageHandler(accountService(), "accrueInterest");
@@ -76,18 +75,18 @@ public class IntegrationConfiguration {
 		ServiceActivatingHandler mh = 
 				new ServiceActivatingHandler(accountService(), "accrueInterest");
 		
-		mh.setOutputChannel(changedAccountChannel());
-		return mh;
+		mh.setOutputChannel(changedAccountChannel());   // output channel
+		return mh;                                      // return mh for chaining
 	}
 	
 	
 	@Bean
 	@ServiceActivator(inputChannel = "changedAccountChannel")
 	public MessageHandler auditActivator() {
-	                	// Activator configured with Audit Server obj and auditAccount method
-		                // using MethodInvokingMessageHandler, does not accept method return value
-		ServiceActivatingHandler mh = 
-				new ServiceActivatingHandler(auditService(), "auditAccount");
+	                	// Channel adapter for Audit Server 
+		                // auditAccount returns void, use MethodInvokingMessageHandler
+		MethodInvokingMessageHandler mh = 
+				new MethodInvokingMessageHandler(auditService(), "auditAccount");
 		
 		return mh;
 	}
@@ -95,8 +94,8 @@ public class IntegrationConfiguration {
 	@Bean
 	@ServiceActivator(inputChannel = "changedAccountChannel")
 	public MessageHandler emailActivator() {
-	                	// Activator configured with emailService obj and sendEmail method
-                        // using ServiceActivatingHandler, does accept method return value
+	                	// Channel adapter for emailService 
+                        // using ServiceActivatingHandler will work even with void method
 		ServiceActivatingHandler mh = 
 				new ServiceActivatingHandler(emailService(), "sendEmail");
 		

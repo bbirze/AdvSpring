@@ -10,10 +10,10 @@ import com.example.domain.Account;
 
 public class AccountServiceImpl implements AccountService {
 
-	@Override
+	@Override                      // now returning updated Account obj
 	public Account accrueInterest(Account a, 
 			@Header(name="expirationDate") Long expiry) {
-		System.out.println("Got Message with Expiry: " + new Date(expiry));
+		System.out.println("Account Service Got Message with Expiry: " + new Date(expiry));
 		System.out.println("   Current: " + a);
 		
 		BigDecimal balance = a.getBalance();
@@ -21,7 +21,7 @@ public class AccountServiceImpl implements AccountService {
 		a.setBalance(balance);
 		
 		System.out.println("   Updated: " + a);
-		return a;
+		return a;                  // will be put on pub sub channel
 	}
 
 }

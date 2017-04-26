@@ -18,15 +18,15 @@ import com.example.domain.PurchaseOrder;
 public class SendPurchaseOrder {
 	
 	@Autowired
-	private JmsTemplate jmsTemplate;
+	private JmsTemplate jmsTemplate;          // SpringBoot auto configured 
 	
 	private class MyMessageCreator implements MessageCreator {
 		private PurchaseOrder po;
-		
+		                                      // internal class takes a Purchase Order
 		public MyMessageCreator(PurchaseOrder po)  {
 			this.po = po;
 		}
-		@Override                          // called by jmsTemplate.send(...)
+		@Override                             // called by jmsTemplate.send(...)
 		public Message createMessage(Session session) throws JMSException {
 			ObjectMessage msg = session.createObjectMessage(po);
 			return msg;
@@ -40,7 +40,7 @@ public class SendPurchaseOrder {
 		po.setAmount(poAmt);
 		
 		MyMessageCreator mmc = new MyMessageCreator(po);
-		jmsTemplate.send("poQueue", mmc);  // use MyMessageCreator
+		jmsTemplate.send("poQueue", mmc);     // use MyMessageCreator
 	}
 
 }

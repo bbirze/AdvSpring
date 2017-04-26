@@ -16,8 +16,8 @@ import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.MessageHandler;
 
-@Configuration
-@EnableIntegration
+@Configuration                       // Java Configuration
+@EnableIntegration                   // add Spring integration
 public class JDBCOutbound {
 	
 	@Bean
@@ -33,7 +33,7 @@ public class JDBCOutbound {
 	@ServiceActivator(inputChannel = "goodStudentChannel")
 	public MessageHandler approvePolicyActivator() {
 
-		// create a JDBC outbound adapter
+		// create a JDBC outbound adapter, a diff kind of msg handler... 
 		JdbcMessageHandler jh = new JdbcMessageHandler(dataSource(),
 						"Insert into STUDENT (name, gpa) VALUES(?, ?)");
 		

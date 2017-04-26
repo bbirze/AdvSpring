@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+<typeInfo handle="=lab03/C:\/Program Files\/Java\/jre1.8.0_91\/lib\/rt.jar&lt;java.io(Serializable.class[Serializable" modifiers="1537" timestamp="1467729525091"/>
+<typeInfo handle="=lab03/C:\/Users\/bbirze\/.gradle\/caches\/modules-2\/files-2.1\/org.jboss.spec.javax.jms\/jboss-jms-api_2.0_spec\/1.0.0.Final\/1a5d61a9a92e509b385477bc6fc3cad9e34f5ebc\/jboss-jms-api_2.0_spec-1.0.0.Final.jar&lt;javax.jms(MessageListener.class[MessageListener" modifiers="1537" timestamp="1476629387018"/>
+<typeInfo handle="=lab04p3/C:\/Users\/bbirze\/.gradle\/caches\/modules-2\/files-2.1\/org.springframework.batch\/spring-batch-infrastructure\/3.0.6.RELEASE\/1c7ca193e0e25118c0f57f0199145c7801164b3\/spring-batch-infrastructure-3.0.6.RELEASE.jar&lt;org.springframework.batch.item(ItemReader.class[ItemReader" modifiers="1537" timestamp="1476636772437"/>
+<typeInfo handle="=lab04p3/C:\/Users\/bbirze\/.gradle\/caches\/modules-2\/files-2.1\/org.springframework.batch\/spring-batch-infrastructure\/3.0.6.RELEASE\/1c7ca193e0e25118c0f57f0199145c7801164b3\/spring-batch-infrastructure-3.0.6.RELEASE.jar&lt;org.springframework.batch.item(ItemStream.class[ItemStream" modifiers="1537" timestamp="1476636772437"/>
+<typeInfo handle="=lab04p3/C:\/Users\/bbirze\/.gradle\/caches\/modules-2\/files-2.1\/org.springframework.batch\/spring-batch-infrastructure\/3.0.6.RELEASE\/1c7ca193e0e25118c0f57f0199145c7801164b3\/spring-batch-infrastructure-3.0.6.RELEASE.jar&lt;org.springframework.batch.item(ItemWriter.class[ItemWriter" modifiers="1537" timestamp="1476636772437"/>
+<typeInfo handle="=lab06/src\/main\/java&lt;com.example.service{AccountService.java[AccountService" modifiers="513" timestamp="1487194628256"/>
+<typeInfo handle="=lab06p2/src\/main\/java&lt;com.example.service{AuditService.java[AuditService" modifiers="513" timestamp="1485881793853"/>
+<typeInfo handle="=lab07/src\/main\/java&lt;com.example.service{RejectedPolicyService.java[RejectedPolicyService" modifiers="513" timestamp="1485899673972"/>
+</typeInfoHistroy>

@@ -9,16 +9,16 @@ import org.springframework.jms.listener.DefaultMessageListenerContainer;
 
 import com.example.messaging.ReceivePurchaseOrder;
 
-@Configuration
+@Configuration                             // Spring Java config class
 public class MyConfiguration {
 	
-	@Autowired
+	@Autowired                             // QMgr SpringBoot auto configured
 	private ConnectionFactory connectionFactory;
 	
-	@Bean
+	@Bean                                  // Spring Listener Container
 	public DefaultMessageListenerContainer messageListener()  {
 		DefaultMessageListenerContainer container = new DefaultMessageListenerContainer();
-		
+		// need QMgr, Queue, and Listener (your class)
 		container.setConnectionFactory(connectionFactory);
 		container.setDestinationName("poQueue");
 		container.setMessageListener(new ReceivePurchaseOrder());

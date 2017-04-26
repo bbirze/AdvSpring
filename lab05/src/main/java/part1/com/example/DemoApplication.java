@@ -17,7 +17,7 @@ public class DemoApplication {
 		SpringApplication app = new SpringApplication(DemoApplication.class);
 		app.setBannerMode(Mode.OFF);
 		ApplicationContext ctx = app.run(args);
-		
+		                              // stop casting and tell Spring the type we want
 		MessageChannel channel = ctx.getBean("shippingChannel", MessageChannel.class);
 		Message<String> msg = MessageBuilder.withPayload("BB").build();
 		

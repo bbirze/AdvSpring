@@ -12,8 +12,8 @@ import org.springframework.messaging.MessageHandler;
 import part1.hello.HelloWorld;
 import part1.hello.HelloWorldImpl;
 
-@Configuration
-@EnableIntegration
+@Configuration                    // Java Configuration Class
+@EnableIntegration                // use Spring Integration
 public class IntegrationConfiguration {
 	
 	@Bean

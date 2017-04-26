@@ -29,9 +29,9 @@ import com.example.service.RejectedPolicyService;
  *     
  *     Endpoints:     PolicyRouter, PolicySplitter
  */
-@Configuration
-@EnableIntegration
-@IntegrationComponentScan("com.example.service")
+@EnableIntegration                                         // enable Spring Integration
+@Configuration                                             // Using Spring Java Configurations
+@IntegrationComponentScan("com.example.service")           //    And Spring annotations
 public class IntegrationConfiguration {
 
 	// message channels 
